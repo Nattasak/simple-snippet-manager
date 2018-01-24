@@ -11,7 +11,7 @@ class SnippetList extends Component {
   }
 
   handleClick(lang, title) {
-    console.log(lang, title);
+    // console.log(lang, title);
   }
 
   render() {

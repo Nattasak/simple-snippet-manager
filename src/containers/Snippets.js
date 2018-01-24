@@ -23,7 +23,7 @@ class Snippets extends Component {
           lang: 'react',
           title: 'React Title',
           code: 'React Code',
-        }
+        },
       ],
     };
   }
