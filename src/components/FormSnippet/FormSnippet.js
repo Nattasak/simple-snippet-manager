@@ -7,6 +7,7 @@ class FormSnippet extends Component {
     super(props);
     this.state = {
       snippet: props.snippet,
+      items: []
     };
 
     this.handleLang = this.handleLang.bind(this);
@@ -37,6 +38,8 @@ class FormSnippet extends Component {
   }
 
   handleSubmit(e) {
+    const snippet = this.state.snippet;
+    this.setState(prevState => ({ items: [ ...prevState.items, snippet] }));
     e.preventDefault();
   }
 

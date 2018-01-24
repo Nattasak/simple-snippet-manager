@@ -35,7 +35,7 @@ class Sidebar extends Component {
             { value: 'php', label: 'PHP' },
           ]}
         />
-        {this.state.selectedOption ? <ListSnippet /> : null}
+        {this.state.selectedOption ? <ListSnippet lang={this.state.selectedOption.value} /> : null}
       </div>
     );
   }
