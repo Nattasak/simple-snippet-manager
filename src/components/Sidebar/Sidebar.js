@@ -12,10 +12,16 @@ class Sidebar extends Component {
     this.state = { selectedOption: '' };
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleData = this.handleData.bind(this);
   }
 
   handleChange(selectedOption) {
     this.setState({ selectedOption });
+  }
+
+  handleData(dataFromChild) {
+    // console.log(dataFromChild, '22222222');
+    this.props.data(dataFromChild);
   }
 
   render() {
@@ -35,7 +41,11 @@ class Sidebar extends Component {
             { value: 'php', label: 'PHP' },
           ]}
         />
-        {this.state.selectedOption && <SnippetList lang={this.state.selectedOption.value} items={this.props.snippet} />}
+        { this.state.selectedOption
+          && <SnippetList
+            lang={this.state.selectedOption.value}
+            items={this.props.snippet}
+            data={this.handleData} />}
       </div>
     );
   }

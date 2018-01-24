@@ -11,28 +11,46 @@ class Snippets extends Component {
       items: [
         {
           lang: 'php',
-          title: 'PHP Title55555',
-          code: 'PHP Code',
+          title: 'PHP concat string',
+          code: '<?php concat string php ?>',
         },
         {
           lang: 'js',
-          title: 'JavaScript Title',
-          code: 'JavaScript Code',
+          title: 'JavaScript Array Unique',
+          code: 'uniqe array js',
         },
         {
           lang: 'react',
           title: 'React Title',
           code: 'React Code',
         },
+        {
+          lang: 'react',
+          title: 'State and Props',
+          code: `
+            this.state = { value: '' }
+            {this.props.name}
+          `,
+        },
       ],
+      data: {},
     };
+
+    this.handleData = this.handleData.bind(this);
+  }
+
+  handleData(data) {
+    // console.log(data, '333333333');
+    this.setState({ data });
   }
 
   render() {
+    // console.log(this.state.data, '4444444444');
+
     return (
       <Layout>
-        <Sidebar snippet={this.state.items} />
-        <Main snippet={this.state.items} />
+        <Sidebar snippet={this.state.items} data={this.handleData} />
+        <Main snippet={this.state.items} data={this.state.data} />
       </Layout>
     );
   }

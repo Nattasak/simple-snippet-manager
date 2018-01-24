@@ -25,6 +25,8 @@ class Main extends Component {
       addEditForm = <SnippetForm name="Edit Snippet" items={this.state.items} />;
     }
 
+    // console.log(this.props.data, '55555555');
+
     return (
       <div className="Main column">
         <SnippetButton
@@ -37,7 +39,7 @@ class Main extends Component {
           state={this.state.editSnippet}
           setstate={editSnippet => this.setState({ editSnippet })}
         />
-        {this.state.addSnippet || this.state.editSnippet ? addEditForm : <SnippetShow />}
+        {this.state.addSnippet || this.state.editSnippet ? addEditForm : <SnippetShow data={this.props.data} />}
       </div>
     );
   }

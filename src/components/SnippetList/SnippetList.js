@@ -5,13 +5,13 @@ import './SnippetList.css';
 class SnippetList extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
 
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick(lang, title) {
-    // console.log(lang, title);
+  handleClick(item) {
+    // console.log(item, '1111111111');
+    this.props.data(item);
   }
 
   render() {
@@ -19,7 +19,7 @@ class SnippetList extends Component {
 
     const listItem = items.filter(item => item.lang === lang).map((item, index) => (
       <li key={index}>
-        <a onClick={() => this.handleClick(item.lang, item.title)}>{item.title}</a>
+        <a onClick={() => this.handleClick(item)}>{item.title}</a>
       </li>
     ));
 
