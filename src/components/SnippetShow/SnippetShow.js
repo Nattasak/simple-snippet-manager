@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react';
 
-import './ShowSnippet.css';
+import './SnippetShow.css';
 
-const ShowSnippet = () => (
+const SnippetShow = () => (
   <Fragment>
     <h1 className="title">JavaScript</h1>
     <h2 className="subtitle">Concat Array</h2>
@@ -10,4 +10,4 @@ const ShowSnippet = () => (
   </Fragment>
 );
 
-export default ShowSnippet;
+export default SnippetShow;

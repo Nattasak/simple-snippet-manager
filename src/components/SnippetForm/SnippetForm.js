@@ -1,13 +1,13 @@
 import React, { Component, Fragment } from 'react';
 
-import './FormSnippet.css';
+import './SnippetForm.css';
 
-class FormSnippet extends Component {
+class SnippetForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
       snippet: props.snippet,
-      items: [],
+      items: props.items,
     };
 
     this.handleLang = this.handleLang.bind(this);
@@ -44,10 +44,13 @@ class FormSnippet extends Component {
   }
 
   render() {
+    console.log(this.state.snippet);
+    console.log(this.state.items);
+
     return (
       <Fragment>
         <h1 className="title">{this.props.name}</h1>
-        <form className="FormSnippet" onSubmit={this.handleSubmit}>
+        <form className="SnippetForm" onSubmit={this.handleSubmit}>
           <div className="field">
             <div className="control">
               <div className="select">
@@ -101,7 +104,7 @@ class FormSnippet extends Component {
   }
 }
 
-FormSnippet.defaultProps = {
+SnippetForm.defaultProps = {
   snippet: {
     lang: 'js',
     title: '',
@@ -109,4 +112,4 @@ FormSnippet.defaultProps = {
   },
 };
 
-export default FormSnippet;
+export default SnippetForm;

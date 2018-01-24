@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Select from 'react-select';
 
-import ListSnippet from '../ListSnippet/ListSnippet';
+import SnippetList from '../SnippetList/SnippetList';
 
 import 'react-select/dist/react-select.css';
 import './Sidebar.css';
@@ -35,7 +35,9 @@ class Sidebar extends Component {
             { value: 'php', label: 'PHP' },
           ]}
         />
-        {this.state.selectedOption ? <ListSnippet lang={this.state.selectedOption.value} /> : null}
+        { this.state.selectedOption
+          && <SnippetList lang={this.state.selectedOption.value} items={this.props.snippet} />
+        }
       </div>
     );
   }

@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 
-import AddSnippet from '../AddSnippet/AddSnippet';
-import ButtonAddEdit from '../ButtonAddEdit/ButtonAddEdit';
-import EditSnippet from '../EditSnippet/EditSnippet';
-import ShowSnippet from '../ShowSnippet/ShowSnippet';
+import SnippetButton from '../SnippetButton/SnippetButton';
+import SnippetForm from '../SnippetForm/SnippetForm';
+import SnippetShow from '../SnippetShow/SnippetShow';
 
 import './Main.css';
 
@@ -13,31 +12,32 @@ class Main extends Component {
     this.state = {
       addSnippet: false,
       editSnippet: false,
+      items: props.snippet,
     };
   }
 
   render() {
-    let addEditSnippet = null;
+    let addEditForm = null;
 
     if (this.state.addSnippet) {
-      addEditSnippet = <AddSnippet />;
+      addEditForm = <SnippetForm name="Add Snippet" items={this.state.items} />;
     } else {
-      addEditSnippet = <EditSnippet />;
+      addEditForm = <SnippetForm name="Edit Snippet" items={this.state.items} />;
     }
 
     return (
       <div className="Main column">
-        <ButtonAddEdit
+        <SnippetButton
           name="Add"
           state={this.state.addSnippet}
           setstate={addSnippet => this.setState({ addSnippet })}
         />
-        <ButtonAddEdit
+        <SnippetButton
           name="Edit"
           state={this.state.editSnippet}
           setstate={editSnippet => this.setState({ editSnippet })}
         />
-        {this.state.addSnippet || this.state.editSnippet ? addEditSnippet : <ShowSnippet />}
+        {this.state.addSnippet || this.state.editSnippet ? addEditForm : <SnippetShow />}
       </div>
     );
   }
