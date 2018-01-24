@@ -24,9 +24,11 @@ class ListSnippet extends Component {
       },
     ];
 
-    const listItem = items
-      .filter(item => item.lang === lang)
-      .map((item, index) => <li key={index}><a>{item.title}</a></li>);
+    const listItem = items.filter(item => item.lang === lang).map((item, index) => (
+      <li key={index}>
+        <a>{item.title}</a>
+      </li>
+    ));
 
     return (
       <aside className="ListSnippet menu">
